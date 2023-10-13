@@ -4,7 +4,7 @@ export default async function Page() {
   const response = await fetch(process.env.SERVER_HOST + "/api/test", {
     cache: "no-store",
   });
-  const { greeting } = await response.json();
+  const { greeting }: { greeting: string } = await response.json();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
