@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Next Playground",
+  description: "...",
+};
+
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
@@ -9,7 +16,6 @@ export default function DashboardLayout({
       <nav className="w-full bg-black p-2 pl-0 pr-0 text-white text-center">
         Hello
       </nav>
-
       {children}
     </section>
   );

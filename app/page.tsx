@@ -6,6 +6,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center">
       <Link href="/test">SSR Test</Link>
       <Link href="/client">Client</Link>
+      <Link href="/list">List</Link>
     </main>
   );
 }
