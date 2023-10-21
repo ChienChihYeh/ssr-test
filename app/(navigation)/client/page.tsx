@@ -1,16 +1,16 @@
-"use client";
-import Link from "next/link";
-import { fetchGreetings } from "@/utils/fetch";
+"use client"
+import Link from "next/link"
+import { fetchGreetings } from "@/utils/fetch"
 
 export default function Client() {
   function showGreetings() {
     fetchGreetings().then((res) => {
-      alert(res);
-    });
+      alert(res)
+    })
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col items-center justify-center text-black">
       <p>
         <button
           onClick={showGreetings}
@@ -21,5 +21,5 @@ export default function Client() {
       </p>
       <Link href="/">Home</Link>
     </div>
-  );
+  )
 }
