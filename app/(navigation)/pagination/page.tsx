@@ -40,7 +40,9 @@ export default async function Pagination({
   }
 
   const keyword =
-    typeof searchParams.search === "string" ? searchParams.search : ""
+    typeof searchParams.search === "string"
+      ? searchParams.search.toLowerCase()
+      : ""
 
   const filteredFruitList = fruitList.filter((v) =>
     v.toLowerCase().includes(keyword)
@@ -84,13 +86,32 @@ export default async function Pagination({
     return ""
   }
 
+  async function keywordSearch(formData: FormData) {
+    "use server"
+    const searchKeyword = formData.get("keyword")
+    if (searchKeyword && typeof searchKeyword === "string") {
+      redirect(
+        "http://localhost:3000/pagination?page=1&search=" +
+          searchKeyword.toLowerCase()
+      )
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center text-black">
       <h1 className="font-bold">Pagination</h1>
       {/* <p>{JSON.stringify(searchParams)}</p> */}
       <div className="m-1 text-center">
-        <Search />
-        {/* {filteredFruitList} */}
+        <form action={keywordSearch}>
+          <input
+            name="keyword"
+            className="border border-black mr-1 w-1/2 outline-none"
+          ></input>
+          <button className="p-1 pl-2 pr-2 bg-black text-gray-200 rounded m-1">
+            Search
+          </button>
+        </form>
+        {/* <Search /> */}
         {keyword && (
           <p className="m-2">
             <span className="font-bold">Search:</span> {keyword}
