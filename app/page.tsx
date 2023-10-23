@@ -4,11 +4,11 @@ import ThemeToggle from "./theme";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="flex min-h-screen flex-col items-center justify-center text-primary bg-secondary transition">
       <Link href="/test">SSR Test</Link>
       <Link href="/client">Client</Link>
       <Link href="/list">List</Link>
-      <Link href="/pagination?page=1">Pagination</Link>
+      <Link href="pagination?page=1">Pagination</Link>
       <ThemeToggle />
     </main>
   );

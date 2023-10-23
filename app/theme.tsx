@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { changeTheme } from "@/utils/helper";
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(
-    document.querySelector("html")?.getAttribute("data-theme") === "dark"
-  );
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    changeTheme(dark);
-  }, [dark]);
+    if (document.querySelector("html")?.getAttribute("data-theme") === "dark") {
+      setDark(true);
+    }
+  }, []);
 
   console.log("theme load");
 
@@ -18,6 +18,14 @@ export default function ThemeToggle() {
     <button
       className="text-secondary bg-primary py-1 px-2 rounded mt-2"
       onClick={() => {
+        if (
+          document.querySelector("html")?.getAttribute("data-theme") === "dark"
+        ) {
+          changeTheme(false);
+        } else {
+          changeTheme(true);
+        }
+
         setDark((prev) => !prev);
       }}
     >

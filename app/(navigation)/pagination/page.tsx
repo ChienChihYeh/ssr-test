@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import Search from "./search";
 
 const fruitList = [
@@ -56,7 +55,7 @@ export default async function Pagination({
   const noFilteredResult = filteredFruitList.length === 0 && keyword;
 
   const itemPerPage = 3;
-  const totalPages = Math.min(
+  const totalPages = Math.max(
     Math.ceil(filteredFruitList.length / itemPerPage),
     1
   );
@@ -113,7 +112,7 @@ export default async function Pagination({
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className="font-bold">Pagination</h1>
       {/* <p>{JSON.stringify(searchParams)}</p> */}
-
+      <p>{totalPages}</p>
       <div className="m-1 text-center">
         <Search />
         {keyword && (
@@ -130,9 +129,6 @@ export default async function Pagination({
         {noFilteredResult && (
           <>
             <p className="mb-2">No matching results.</p>{" "}
-            <span className="py-1 px-2 bg-highlight text-secondary rounded cursor-pointer">
-              1
-            </span>
           </>
         )}
         <ul className="list-disc w-fit mb-2 m-auto">
