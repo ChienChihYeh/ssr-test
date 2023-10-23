@@ -1,29 +1,26 @@
-"use client"
-import Link from "next/link"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Search() {
-  const [keyword, setKeyword] = useState("")
-  const router = useRouter()
+  const [keyword, setKeyword] = useState("");
+  const router = useRouter();
 
   return (
     <>
       <input
-        className="border border-black mr-1 w-1/2 outline-none"
+        className="border border-black mr-1 w-1/2 outline-none text-black"
         value={keyword}
         onChange={(e) => {
-          setKeyword(e.target.value)
+          setKeyword(e.target.value);
         }}
       ></input>
       <button
         className="p-1 pl-2 pr-2 bg-black text-gray-200 rounded m-1"
         onClick={() => {
-          router.push(
-            "http://localhost:3000/pagination?page=1&search=" +
-              keyword.toLowerCase()
-          )
-          setKeyword("")
+          router.push("/pagination?page=1&search=" + keyword.toLowerCase());
+          setKeyword("");
         }}
       >
         Search
@@ -35,5 +32,5 @@ export default function Search() {
         Search
       </Link> */}
     </>
-  )
+  );
 }

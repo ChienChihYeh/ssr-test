@@ -11,9 +11,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <section className="bg-secondary">
       {/* Include shared UI here e.g. a header or sidebar */}
-      <nav className="w-full bg-black p-2 pl-0 pr-0 text-white text-center">
+      <nav className="w-full bg-primary p-2 pl-0 pr-0 text-secondary text-center">
         Hello
       </nav>
       {children}

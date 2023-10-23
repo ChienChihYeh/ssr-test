@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 }
+
+@layer base {
+  html {
+    --color-primary: #000;
+    --color-secondary: #fff;
+    --color-highlight: #666;
+  }
+  @import "../styles/dark.css";
+}

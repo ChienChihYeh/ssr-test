@@ -1,0 +1,5 @@
+html[data-theme="dark"] {
+  --color-primary: #f0f0f0;
+  --color-secondary: #333;
+  --color-highlight: #ccc;
+}
